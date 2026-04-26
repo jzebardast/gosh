@@ -5,120 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAYRAN | Exclusive Jewelry</title>
     <style>
+        :root {
+            --turquoise: #40E0D0; /* فیروزه‌ای اصلی */
+            --dark-cyan: #008B8B;
+        }
+
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Helvetica Neue', sans-serif; 
             margin: 0; 
-            background-color: #f4f4f4;
+            display: flex; /* برای ایجاد منوی سمت چپ */
+            background-color: var(--turquoise); /* پس‌زمینه فیروزه‌ای کل سایت */
             color: #333;
         }
 
-        /* بخش هدر با پس‌زمینه تصویر چوب */
-        header { 
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('5.jfif'); /* اینجا نام عکسی که می‌خواهی در پس‌زمینه باشد را بنویس */
-            background-size: cover;
-            background-position: center;
-            height: 450px;
+        /* منوی عمودی سمت چپ */
+        nav {
+            width: 250px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
+            padding: 40px 20px;
+            border-right: 1px solid rgba(255,255,255,0.2);
         }
 
-        h1 { font-size: 4rem; letter-spacing: 15px; margin: 0; font-weight: 300; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-        .tagline { font-size: 1.2rem; letter-spacing: 4px; margin-top: 20px; text-transform: uppercase; }
+        nav h2 { color: white; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 50px; }
+        nav a { color: white; text-decoration: none; margin: 15px 0; font-size: 1.1rem; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { opacity: 1; padding-left: 10px; }
 
-        .container { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; }
+        /* محتوای اصلی سایت */
+        main {
+            margin-left: 290px; /* فاصله از منوی سمت چپ */
+            padding: 50px;
+            width: 100%;
+        }
 
-        /* استایل کارت‌ها شبیه به عکس ارسالی شما */
+        header { text-align: center; color: white; margin-bottom: 60px; }
+        header h1 { font-size: 4rem; letter-spacing: 15px; margin: 0; font-weight: 200; }
+
+        /* کارت‌های محصول */
         .product-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+            gap: 30px; 
         }
 
         .product-card { 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 40px 20px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: white; 
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .product-card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
         }
 
-        .product-card h3 { 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .product-card p { 
-            font-size: 1rem; 
-            color: #555; 
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
+        .product-info { padding: 25px; text-align: center; }
+        .product-info h3 { color: var(--dark-cyan); margin-bottom: 10px; text-transform: uppercase; }
+        .product-info p { font-size: 0.9rem; color: #666; line-height: 1.6; }
 
         /* بخش تماس */
-        .contact-section { 
-            background: white; 
-            padding: 40px; 
-            margin-top: 50px; 
-            border-radius: 8px;
+        .contact-box {
+            background: white;
+            margin-top: 60px;
+            padding: 40px;
+            border-radius: 15px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .contact-info { flex: 1; min-width: 300px; }
-        .map-box { flex: 1; min-width: 300px; height: 250px; background: #eee; border-radius: 8px; overflow: hidden; }
-
-        .lang-switch { margin-top: 20px; font-size: 0.9rem; }
+        .map-frame { width: 45%; height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid #eee; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>JAYRAN</h1>
-    <div class="tagline">HANDCRAFTED NATURE-INSPIRED JEWELRY</div>
-</header>
+<nav>
+    <h2>Jayran</h2>
+    <a href="#">Collection</a>
+    <a href="#">About Design</a>
+    <a href="#">Contact</a>
+    <a href="#" style="margin-top: auto;">DE | EN</a>
+</nav>
 
-<div class="container">
+<main>
+    <header>
+        <h1>JAYRAN</h1>
+        <p>HANDCRAFTED NATURE-INSPIRED JEWELRY</p>
+    </header>
+
     <div class="product-grid">
-        
         <div class="product-card">
-            <h3>Leaf Collection A</h3>
-            <p>Handcrafted ceramic earrings with intricate leaf textures. Finished with turquoise accents.</p>
+            <img src="4.jfif" class="card-img" alt="Jewelry 1">
+            <div class="product-info">
+                <h3>Leaf Collection A</h3>
+                <p>Handcrafted ceramic earrings with intricate leaf textures.</p>
+            </div>
         </div>
 
         <div class="product-card">
-            <h3>Leaf Collection B</h3>
-            <p>Nature-inspired design featuring authentic turquoise stones and rustic wood elements.</p>
+            <img src="5.jfif" class="card-img" alt="Jewelry 2">
+            <div class="product-info">
+                <h3>Leaf Collection B</h3>
+                <p>Nature-inspired design with authentic turquoise stones.</p>
+            </div>
         </div>
 
         <div class="product-card">
-            <h3>Premium Packaging</h3>
-            <p>Every piece comes in our signature JAYRAN luxury gift box, ready for special occasions.</p>
+            <img src="94e5e2a1-a59f-4a53-bba8-21978908a5ef.jfif" class="card-img" alt="Jewelry 3">
+            <div class="product-info">
+                <h3>Premium Gift Box</h3>
+                <p>Luxury packaging for exclusive items.</p>
+            </div>
         </div>
-
     </div>
 
-    <div class="contact-section">
-        <div class="contact-info">
-            <h2>Contact Us</h2>
+    <div class="contact-box">
+        <div style="width: 50%;">
+            <h2>Order & Inquiry</h2>
+            <p><strong>WhatsApp:</strong> +49 1XX XXXXXXXX</p>
             <p><strong>Location:</strong> Bad Windsheim, Germany</p>
-            <p><strong>Phone:</strong> +49 1XX XXXXXXXX</p>
-            <div class="lang-switch">🇩🇪 German / 🇬🇧 English</div>
         </div>
-        <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.2!2d10.3!3d49.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a123!2sBad%20Windsheim!5e0!3m2!1sen!2sde!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.6!2d10.4!3d49.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a123!2sBad%20Windsheim!5e0!3m2!1sen!2sde!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen=""></iframe>
         </div>
     </div>
-</div>
+</main>
 
-<footer style="text-align
+</body>
+</html>
